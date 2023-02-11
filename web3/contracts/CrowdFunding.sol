@@ -5,8 +5,9 @@ contract CrowdFunding {
     struct Campaign {
         address owner;
         string title;
-        string description;
+        string location;
         string category;
+        string description;
         uint256 target;
         uint256 deadline;
         uint256 amountCollected;
@@ -26,7 +27,7 @@ contract CrowdFunding {
 
         campaign.owner = _owner;
         campaign.title = _title;
-        campaign.title = _location;
+        campaign.location = _location;
         campaign.category = _category;
         campaign.description = _description;
         campaign.target = _target;
@@ -66,5 +67,7 @@ contract CrowdFunding {
 
             allCampaigns[i] = item;
         }
+
+        return allCampaigns;
     }
 }

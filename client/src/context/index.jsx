@@ -6,7 +6,7 @@ import { ethers } from 'ethers';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-    const { contract } = useContract('0x1840f0E8422c64AF5e89E25aC9E90Ff9A1D5787F');
+    const { contract } = useContract('0x19861CD22414D201C08e605AC4392C35665903b5');
     const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
   
     const address = useAddress();
@@ -17,7 +17,6 @@ export const StateContextProvider = ({ children }) => {
             const data = await createCampaign([
                 address,
                 form.title,
-                form.name,
                 form.location,
                 form.category,
                 form.description,
@@ -29,7 +28,7 @@ export const StateContextProvider = ({ children }) => {
             console.log("Contract call success!", data);
             
         } catch (error) {
-            console.log("Contract call failed.., error");
+            console.log("Contract call failed..", error);
         }
     }
 
